@@ -21,11 +21,17 @@ public class Avatar extends Actor {
     
     private void contols() {
         if (getMovement() == Movement.LEFT) {
-            move(-this.moveSpeed);
+            setRotation(180);
+            move(4);
         } else if (getMovement() == Movement.RIGHT) {
-            move(this.moveSpeed);
-        } else if (getMovement() == Movement.JUMP) {
-            isJumping = true;
+            setRotation(0);
+            move(4);
+        } else if (getMovement() == Movement.UP) {
+            setRotation(-90);
+            move(4);
+        } else if (getMovement() == Movement.DOWN) {
+            setRotation(90);
+            move(4);
         }
         
         if (isJumping) {
@@ -41,12 +47,14 @@ public class Avatar extends Actor {
     
     private Movement getMovement() {
         if (Player.PLAYER_1 == this.player) {
-            if (Greenfoot.isKeyDown("left")) {
+            if (Greenfoot.isKeyDown("4")) {
                 return Movement.LEFT;
-            } else if (Greenfoot.isKeyDown("right")) {
+            } else if (Greenfoot.isKeyDown("6")) {
                 return Movement.RIGHT;
-            } else if (Greenfoot.isKeyDown("up")) {
-                return Movement.JUMP;
+            } else if (Greenfoot.isKeyDown("8")) {
+                return Movement.UP;
+            } else if (Greenfoot.isKeyDown("5")) {
+                return Movement.DOWN;
             }
         } else {
             if (Greenfoot.isKeyDown("q")) {
@@ -54,7 +62,9 @@ public class Avatar extends Actor {
             } else if (Greenfoot.isKeyDown("d")) {
                 return Movement.RIGHT;
             } else if (Greenfoot.isKeyDown("z")) {
-                return Movement.JUMP;
+                return Movement.UP;
+            } else if (Greenfoot.isKeyDown("s")) {
+                return Movement.DOWN;
             }
         }
         
@@ -66,7 +76,7 @@ public class Avatar extends Actor {
     }
     
     private enum Movement {
-        LEFT, RIGHT, JUMP;
+        LEFT, RIGHT, UP, DOWN;
     }
     
     public enum Player {
