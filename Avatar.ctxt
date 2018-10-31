@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Avatar
+comment1.params=stamina\ moveSpeed\ player
+comment1.target=Avatar(int,\ int,\ Avatar.Player)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ contols()
+comment4.params=
+comment4.target=Avatar.Movement\ getMovement()
+numComments=5
