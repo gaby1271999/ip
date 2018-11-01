@@ -1,3 +1,4 @@
+
 import greenfoot.*;
 
 public class Avatar extends Actor {
@@ -6,7 +7,6 @@ public class Avatar extends Actor {
     
     private int health, stamina, moveSpeed;
     private Player player;
-    private boolean isJumping = false;
     
     public Avatar(int stamina, int moveSpeed, Player player) {
         this.health = myWorld.HEALTH;
@@ -15,11 +15,19 @@ public class Avatar extends Actor {
         this.player = player;
     }
     
-    public void act() {
-        contols();
+    public void setHealth(int health) {
+        this.health = health;
     }
     
-    private void contols() {
+    public int getHealth() {
+        return this.health;
+    }
+    
+    public void act() {
+        controls();
+    }
+    
+    private void controls() {
         if (getMovement() == Movement.LEFT) {
             setRotation(180);
             move(4);
@@ -32,16 +40,6 @@ public class Avatar extends Actor {
         } else if (getMovement() == Movement.DOWN) {
             setRotation(90);
             move(4);
-        }
-        
-        if (isJumping) {
-            turn(-90);
-            move(-6);
-            turn(90);
-            
-            if (getY() < myWorld.GROUND -60) {
-                isJumping = false;
-            }
         }
     }
     
@@ -71,7 +69,37 @@ public class Avatar extends Actor {
         return null;
     }
     
-    private enum Actions {
+    private void aanval() {
+        if(getAction() == Action.MELEE) {
+            //Object enemy = getObjectsInRange(5, Avatar.class);
+            
+            Object object = null;
+            
+            Actor enemy = (Actor) object; 
+            
+            //enemy.setHealth(getHealth() - 50);
+        }
+    }
+    
+    private Action getAction() {
+        if (Player.PLAYER_1 == this.player) {
+            if (Greenfoot.isKeyDown("7")) {
+                return Action.MELEE;
+            } else if (Greenfoot.isKeyDown("9")) {
+                return Action.ULT;
+            }
+        } else {
+            if (Greenfoot.isKeyDown("a")) {
+                return Action.MELEE;
+            } else if (Greenfoot.isKeyDown("e")) {
+                return Action.ULT;
+            }
+        }
+        
+        return null;
+    }
+    
+    private enum Action {
         MELEE, ULT;
     }
     
