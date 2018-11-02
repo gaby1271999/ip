@@ -1,5 +1,6 @@
 
 import greenfoot.*;
+import java.util.*;
 
 public class Avatar extends Actor {
     
@@ -25,6 +26,8 @@ public class Avatar extends Actor {
     
     public void act() {
         controls();
+        
+        aanval();
     }
     
     private void controls() {
@@ -71,13 +74,15 @@ public class Avatar extends Actor {
     
     private void aanval() {
         if(getAction() == Action.MELEE) {
-            //Object enemy = getObjectsInRange(5, Avatar.class);
+            List<Avatar> enemys = getObjectsInRange(100, Avatar.class);
             
-            Object object = null;
-            
-            Actor enemy = (Actor) object; 
-            
-            //enemy.setHealth(getHealth() - 50);
+            if (enemys != null && !enemys.isEmpty()) {
+                Avatar enemy = enemys.get(0);
+
+                enemy.setHealth(enemy.getHealth() - 50);
+                
+                System.out.println(enemy.getHealth());
+            }
         }
     }
     
@@ -105,9 +110,5 @@ public class Avatar extends Actor {
     
     private enum Movement {
         LEFT, RIGHT, UP, DOWN;
-    }
-    
-    public enum Player {
-        PLAYER_1, PLAYER_2;
     }
 }

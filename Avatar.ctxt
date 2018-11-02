@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Avatar
 comment1.params=stamina\ moveSpeed\ player
-comment1.target=Avatar(int,\ int,\ Avatar.Player)
+comment1.target=Avatar(int,\ int,\ Player)
 comment2.params=health
 comment2.target=void\ setHealth(int)
 comment3.params=
