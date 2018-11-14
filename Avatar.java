@@ -50,16 +50,6 @@ abstract class Avatar extends Actor {
     
     private Movement getMovement() {
         if (Player.PLAYER_1 == this.player) {
-            if (Greenfoot.isKeyDown("4")) {
-                return Movement.LEFT;
-            } else if (Greenfoot.isKeyDown("6")) {
-                return Movement.RIGHT;
-            } else if (Greenfoot.isKeyDown("8")) {
-                return Movement.UP;
-            } else if (Greenfoot.isKeyDown("5")) {
-                return Movement.DOWN;
-            }
-        } else {
             if (Greenfoot.isKeyDown("q")) {
                 return Movement.LEFT;
             } else if (Greenfoot.isKeyDown("d")) {
@@ -67,6 +57,16 @@ abstract class Avatar extends Actor {
             } else if (Greenfoot.isKeyDown("z")) {
                 return Movement.UP;
             } else if (Greenfoot.isKeyDown("s")) {
+                return Movement.DOWN;
+            }
+        } else {
+            if (Greenfoot.isKeyDown("4")) {
+                return Movement.LEFT;
+            } else if (Greenfoot.isKeyDown("6")) {
+                return Movement.RIGHT;
+            } else if (Greenfoot.isKeyDown("8")) {
+                return Movement.UP;
+            } else if (Greenfoot.isKeyDown("5")) {
                 return Movement.DOWN;
             }
         }
