@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=HealthBar
+comment1.params=player
+comment1.target=HealthBar(Player)
+comment2.params=damage
+comment2.target=void\ addDamage(double)
+comment3.params=
+comment3.target=java.lang.String\ getPlayer()
+numComments=4

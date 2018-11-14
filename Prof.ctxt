@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=Prof
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Char2\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=player\ healthBar
+comment1.target=Prof(Player,\ HealthBar)
+comment2.params=world\ x\ y
+comment2.target=void\ spawnAvatar(greenfoot.World,\ int,\ int)
+numComments=3

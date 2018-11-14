@@ -2,18 +2,20 @@
 import greenfoot.*;
 import java.util.*;
 
-public class Avatar extends Actor {
+abstract class Avatar extends Actor {
     
     private MyWorld myWorld = new MyWorld();
     
     private int health, stamina, moveSpeed;
     private Player player;
+    private HealthBar healthBar;
     
-    public Avatar(int stamina, int moveSpeed, Player player) {
+    public Avatar(int stamina, int moveSpeed, Player player, HealthBar healthBar) {
         this.health = myWorld.HEALTH;
         this.stamina = stamina;
         this.moveSpeed = moveSpeed;
         this.player = player;
+        this.healthBar = healthBar;
     }
     
     public void setHealth(int health) {
@@ -81,7 +83,10 @@ public class Avatar extends Actor {
 
                 enemy.setHealth(enemy.getHealth() - 50);
                 
-                System.out.println(enemy.getHealth());
+                enemy.getHealthBar().addDamage(50);
+                
+                //DELAY
+                Greenfoot.delay(500);
             }
         }
     }
@@ -102,6 +107,12 @@ public class Avatar extends Actor {
         }
         
         return null;
+    }
+    
+    abstract void spawnAvatar(World world, int x, int y);
+    
+    public HealthBar getHealthBar() {
+        return this.healthBar;
     }
     
     private enum Action {
