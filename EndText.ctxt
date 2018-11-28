@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=EndText
+comment1.params=player
+comment1.target=EndText(Player)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=index
+comment3.target=int\ getCounter(int)
+numComments=4

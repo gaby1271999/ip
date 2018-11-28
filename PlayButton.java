@@ -7,6 +7,5 @@ public class PlayButton extends Actor {
             SelectCharacter selectCharacter = new SelectCharacter();
             Greenfoot.setWorld(selectCharacter);
         }
-        
     }     
 }

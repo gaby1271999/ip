@@ -1,20 +1,24 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
-/**
- * Write a description of class Char1 here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Farmer extends Avatar {
  
-    public Farmer(Player player, HealthBar healthBar) {
-        super(500, 3, player, healthBar); 
-        
-        MyWorld.setAvatar(player, (Avatar) this);
+    public Farmer(Player player, HealthManager healthManager) {
+        super(500, 3, player, healthManager);
     }
     
     public void spawnAvatar(World world, int x, int y) {
         world.addObject(this, x, y);
     }
+    
+    public void attack() {
+        super.getWorld().addObject(new HayFork((Actor) this), super.getX(), super.getY());
+    }
+    
+    public void damage() {
+        super.getDamageDelay().performDelay();
+        
+        super.setImage("farmer_damage.png");
+    }
+   
+    
 }

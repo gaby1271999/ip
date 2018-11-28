@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Delay
+comment1.params=delay
+comment1.target=Delay(int)
+comment2.params=perform
+comment2.target=boolean\ isInDelay(boolean)
+comment3.params=
+comment3.target=void\ performDelay()
+numComments=4

@@ -1,31 +1,30 @@
-import greenfoot.*;
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-public class StartScreen extends World {
-
-    public StartScreen() {    
-        // Create a new world with 1600x800 cells with a cell size of 1x1 pixels.
-        super(1600, 800, 1); 
-        prepare();
-    }
+/**
+ * Write a description of class StartScreen here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class StartScreen extends World
+{
 
     /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
+     * Constructor for objects of class StartScreen.
+     * 
      */
-    private void prepare()
-    {
+    public StartScreen()
+    {    
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        super(1600, 800, 1);
+        repaint();
+        prepare();
+    }
+    
+    private void prepare() {
         PlayButton playButton = new PlayButton();
-        addObject(playButton,774,268);
+        addObject(playButton,800,200);
         InstructionButton instructionButton = new InstructionButton();
-        addObject(instructionButton,775,464);
-        /*
-        p1 p1 = new p1();
-        addObject(p1,128,42);
-        p1 p12 = new p1();
-
-        p1.setLocation(173,41);
-        removeObject(p1);*/
-        playButton.setLocation(733,378);
-        instructionButton.setLocation(727,630);
+        addObject(instructionButton,800,650);
     }
 }

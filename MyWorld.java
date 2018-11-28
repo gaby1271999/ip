@@ -1,40 +1,38 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
-/**
- * Write a description of class MyWorld here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class MyWorld extends World
-{
-    public final static int GROUND = 500;
-    public static int HEALTH = 1000;
-    public static int HEALTH_BAR = 400;
-    
-    private static HealthBar healthBar1, healthBar2;
+public class MyWorld extends World {
+    public static final int HEALTH = 1000;
+    public static final int HEALTH_BAR = 400;
+    public static boolean stopped = false;
     
     private static Avatar charPlayer1;
     private static Avatar charPlayer2;
 
+    private static HealthManager health2;
+    private static HealthManager health1;
+    
+    
     public MyWorld() {    
         super(1600, 800, 1);
         
-        addObjectsInWorld();
+        player1Header();
+        player2Header();
     }
     
-    private void addObjectsInWorld() {
+    private void player1Header() {
         //Header player 1
-        healthBar1 = new HealthBar(Player.PLAYER_1);
-        addObject(healthBar1,200+400,25);
         Player1Header player1Header = new Player1Header();
         addObject(player1Header,200,50);
-        
+        health1 = new HealthManager( 4, 25);
+        health1.changeHealth(this);
+    }
+    
+    private void player2Header() {
         //header player 2
-        healthBar2 = new HealthBar(Player.PLAYER_2);
-        addObject(healthBar2,1400-400,25);
         Player2Header player2Header = new Player2Header();
         addObject(player2Header,1400,50);
+        health2 = new HealthManager( 4, 1425);
+        health2.changeHealth(this);
     }
 
     public void prepare() {
@@ -50,26 +48,22 @@ public class MyWorld extends World
         }
     }
     
-    public static void setAvatar(Player player, Avatar avatar) {
-        if (player == Player.PLAYER_1) {
-            charPlayer1 = avatar;
-        } else {
-            charPlayer2 = avatar;
-        }
-    }
-    
     public static void setAvatar(Player player, Characters character) {
         if (Characters.FARMER == character) {
-            if (player == Player.PLAYER_1) {
-                charPlayer1 = new Farmer(player, healthBar1);
+            if (player == Player.PLAYER_2) {
+                charPlayer2 = new Farmer(player, health2);
+                return;
             } else {
-                charPlayer2 = new Farmer(player, healthBar2);
+                charPlayer1 = new Farmer(player, health1);
+                return;
             }
         } else {
             if (player == Player.PLAYER_1) {
-                charPlayer1 = new Prof(player, healthBar1);
+                charPlayer1 = new Prof(player, health1);
+                return;
             } else {
-                charPlayer2 = new Prof(player, healthBar2);
+                charPlayer2 = new Prof(player, health2);
+                return;
             }
         }
     }

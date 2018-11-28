@@ -1,8 +1,11 @@
 #BlueJ class context
 comment0.target=Farmer
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Char1\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=player\ healthBar
-comment1.target=Farmer(Player,\ HealthBar)
+comment1.params=player\ healthManager
+comment1.target=Farmer(Player,\ HealthManager)
 comment2.params=world\ x\ y
 comment2.target=void\ spawnAvatar(greenfoot.World,\ int,\ int)
-numComments=3
+comment3.params=
+comment3.target=void\ attack()
+comment4.params=
+comment4.target=void\ damage()
+numComments=5

@@ -8,13 +8,21 @@ import greenfoot.*;
  */
 public class Prof extends Avatar
 {
-    public Prof(Player player, HealthBar healthBar) {
-        super(500, 3, player, healthBar);
-        
-        MyWorld.setAvatar(player, (Avatar) this);
+    public Prof(Player player, HealthManager healthManager) {
+        super(500, 3, player, healthManager);
     }   
     
     public void spawnAvatar(World world, int x, int y) {
         world.addObject(this, x, y);
+    }
+    
+    public void attack() {
+        super.getWorld().addObject(new Ruler((Actor) this), super.getX(), super.getY());
+    }
+    
+    public void damage() {
+        super.getDamageDelay().performDelay();
+        
+        super.setImage("prof_damage.png");
     }
 }
